@@ -72,7 +72,7 @@ namespace CategoryBankTrades.Service
             else if (!value.HasValue && string.IsNullOrEmpty(clientSector))
             {
                 throw new Exception("It's necessary report one value or one sector");
-            } else if (clientSector != "private sector" && clientSector != "public sector")
+            } else if (!string.IsNullOrEmpty(clientSector) && clientSector != "private sector" && clientSector != "public sector")
             {
                 throw new Exception("Inform a valid sector");
             }
