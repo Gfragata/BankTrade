@@ -1,6 +1,8 @@
-﻿namespace CategoryBankTrades.Model
+﻿using CategoryBankTrades.Model.Interface;
+
+namespace CategoryBankTrades.Model
 {
-    public class Trade
+    public class Trade : ITrade
     {
         public int? id { get; set; }
         public double Value { get; set; }

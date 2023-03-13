@@ -7,9 +7,9 @@ namespace CategoryBankTrades.Service.Interface
     public interface IBankTradeService
     {
         List<Trade> GetAllTrades();
-        List<string> GetCategoryTrades(List<Trade> trade);
+        List<string> GetCategoryTrades(List<TradesToCategory> trade);
         string CreateTrade(double value, string clientSector);
-        string UpdateTrade(int id, double value, string? clientSector);
+        string UpdateTrade(int id, double? value, string? clientSector);
         string DeleteTrade(int id, bool isDeleted);
     }
 }

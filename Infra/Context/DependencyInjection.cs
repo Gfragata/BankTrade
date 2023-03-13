@@ -1,4 +1,6 @@
-﻿using CategoryBankTrades.Repository;
+﻿using CategoryBankTrades.Model;
+using CategoryBankTrades.Model.Interface;
+using CategoryBankTrades.Repository;
 using CategoryBankTrades.Repository.Interface;
 using CategoryBankTrades.Service;
 using CategoryBankTrades.Service.Interface;

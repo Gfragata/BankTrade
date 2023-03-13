@@ -30,9 +30,22 @@ namespace CategoryBankTrades.Repository
             }
         }
 
-        public void UpdateTrade(int id, double value, string clientSector)
+        public void UpdateTrade(int id, double? value, string? clientSector)
         {
-            var sqlCommand = $"UPDATE Trades  SET Value = {value} ,ClientSector = '{clientSector.ToUpper()}' WHERE id = {id};";
+            var sqlCommand = $"UPDATE Trades  SET ";
+            if (value.HasValue)
+            {
+                sqlCommand = sqlCommand + $"Value = {value} ";
+            }
+            if (!string.IsNullOrEmpty(clientSector))
+            {
+                if (value.HasValue)
+                {
+                    sqlCommand = sqlCommand + ",";
+                }
+                sqlCommand = sqlCommand + $"ClientSector = '{clientSector.ToUpper()}' ";
+            }
+            sqlCommand = sqlCommand + $"WHERE id = {id};";
             var response = _context.CreateOrUpdateTrade(sqlCommand);
             if (response == 0)
             {

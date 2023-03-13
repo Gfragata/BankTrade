@@ -4,6 +4,8 @@ using CategoryBankTrades.Model.Interface;
 using CategoryBankTrades.Service.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.AccessControl;
+using System.Text.Json;
 
 namespace CategoryBankTrades.Controllers
 {
@@ -24,7 +26,7 @@ namespace CategoryBankTrades.Controllers
         }
 
         [HttpPost("GetCategory")]
-        public List<string> GetCategoryTrades([FromBody] List<Trade> trade)
+        public List<string> GetCategoryTrades([FromBody] List<TradesToCategory> trade)
         {
             return _bankTradeService.GetCategoryTrades(trade);
         }
@@ -45,7 +47,7 @@ namespace CategoryBankTrades.Controllers
         }
 
         [HttpPost("ModifyTrade")]
-        public ActionResult UpdateTrade([FromQuery] int id, double value, string? clientSector)
+        public ActionResult UpdateTrade([FromQuery] int id, double? value, string? clientSector)
         {
             try
             {

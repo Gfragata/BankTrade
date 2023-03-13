@@ -6,7 +6,7 @@ namespace CategoryBankTrades.Repository.Interface
     {
         List<Trade> GetAllTrades();
         void CreateTrade(double value, string clientSector);
-        void UpdateTrade(int id, double value, string clientSector);
+        void UpdateTrade(int id, double? value, string? clientSector);
         void DeleteTrade(int id, byte isDeleted);
     }
 }
